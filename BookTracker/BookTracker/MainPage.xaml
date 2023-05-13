@@ -1,0 +1,21 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BookTracker"
+             x:Class="BookTracker.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:BooksViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <Button Text="Add Book" Command="{Binding AddBookCommand}" />
+        <ListView ItemsSource="{Binding Books}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Title}" Detail="{Binding Author}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
